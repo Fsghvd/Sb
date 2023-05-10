@@ -2,9 +2,14 @@ name: Test Suite
 on: push
 jobs:
   test:
-    runs-on: buildjet-32vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
     name: Test
     steps:
-      - uses: actions/checkout@v2
-      - name: tes
-        run: docker run ricardmodi/peli:latest
+    - uses: addnab/docker-run-action@v3
+      with:
+        image: docker:latest
+        shell: bash
+        run: |
+          echo "first line"
+          echo "second line"
+          ./opt/alahsui/entrypoint
